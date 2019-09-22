@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-  //Tabs will always bring the character count to the next multiple of 8
-  //Take in a String
-  //Figure out the total character count
-  //Figure out if there are tabs
-  //Reallocate a string so that the tabs fill the character count up to multiples of 8.
   char *string;
   char *newstring;
   int counter = 0;
@@ -23,7 +18,6 @@ int main(){
         newstring++;
         offset++;
       }
-      //spaces_needed++;
     }
       *newstring = *string;
       newstring++;
@@ -37,11 +31,5 @@ int main(){
     }
     newstring++;
   }
-//  printf("%s\n",newstring);
-//  spaces_needed -= 2;
-/*  for (int i = 0; i < 4; ++i){
-    printf("%d\n",*spaces_needed);
-    spaces_needed++;
-  } */
   return 1;
 }

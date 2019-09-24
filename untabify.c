@@ -6,7 +6,6 @@ int main(){
   int counter = 0;
   int *spaces_needed;
   int offset = 0;
-  int s_flag = 1;
   spaces_needed = calloc(5, sizeof(int));
   string = malloc(100 * sizeof(char));
   newstring = malloc(100*sizeof(char));

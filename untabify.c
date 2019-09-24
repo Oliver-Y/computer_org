@@ -6,10 +6,10 @@ int main(){
   int counter = 0;
   int *spaces_needed;
   int offset = 0;
-  spaces_needed = calloc(5, sizeof(int));
-  string = malloc(100 * sizeof(char));
-  newstring = malloc(100*sizeof(char));
-  fgets(string,50,stdin);
+  spaces_needed = calloc(15, sizeof(int));
+  string = malloc(300 * sizeof(char));
+  newstring = malloc(300*sizeof(char));
+  fgets(string,300,stdin);
   while (*string != 10){
     if(*string == 9){
       for (int i = 0; i < 8-(counter%8); i++){

@@ -8,7 +8,7 @@ int main(){
   int offset = 0;
   spaces_needed = calloc(5, sizeof(int));
   string = malloc(100 * sizeof(char));
-  newstring = malloc(100*sizeof(char));
+  newstring = malloc(100 * sizeof(char));
   fgets(string,50,stdin);
   while (*string != 10){
     if(*string == 9){

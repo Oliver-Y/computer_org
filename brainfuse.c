@@ -19,12 +19,16 @@ int main(int argc, char * argv[]){
   //Keep track of starting location for loop
   int *lp;
   //Useful flags
+  //Disables running IP for loops
   int dis_flag = 0;
+  //Denotes when its looping
   int loop_flag = 0;
+  //Looping skips for nested loops
   int skips = 0;
+  //Break flag when the program is suppose to end at the end.
   int b_flag = 0;
 
-  //Load argument into instruction poniter
+  //Load arguments into instruction pointer
   int arg_length = 0;
   while (*argv[1] != NULL){
     *ip = *argv[1];
@@ -34,7 +38,9 @@ int main(int argc, char * argv[]){
   }
   ip -= arg_length;
 
-//Loop
+//Loops when the IP is not = 0 or when its suppose
+//to be looping and the whole thing is not broken.
+
 while((*ip != 0 || loop_flag == 1) && !b_flag)
   {
     while(loop_flag){
@@ -48,7 +54,6 @@ while((*ip != 0 || loop_flag == 1) && !b_flag)
             loop_flag = 0;
           }
       }
-
     }
     if(!dis_flag || *ip == ']'){
       switch(*ip){
@@ -65,7 +70,6 @@ while((*ip != 0 || loop_flag == 1) && !b_flag)
         case '<':
           dp--;
           break;
-          //Trigger some flag.
         case '[':
         if(*dp == 0){
           dis_flag = 1;
@@ -93,7 +97,6 @@ while((*ip != 0 || loop_flag == 1) && !b_flag)
           else{
             printf("%c",*dp);
           }
-
           break;
         case '0':
           b_flag = 1;

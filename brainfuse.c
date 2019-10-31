@@ -2,6 +2,44 @@
 #include <stdlib.h>
 //Set up the memory
 //Brainfuse
+int* jump_back(int *ip){
+  int loop_flag = 1;
+  int skips = 0;
+  ip--;
+  while(loop_flag){
+    ip--;
+    if (*ip == ']'){
+      skips++;
+    }
+    if(*ip == '[') {
+        if(skips <= 0){
+          loop_flag = 0;
+          return ip;
+        }
+        skips--;
+    }
+  }
+}
+
+int* jump_forward(int *ip){
+//  ip--;
+  int loop_flag = 1;
+  int skips = 0;
+  while(loop_flag){
+    ip++;
+    if(*ip == '['){
+      skips++;
+    }
+    if(*ip == ']'){
+      skips--;
+      if(skips <= 0){
+        loop_flag = 0;
+        return ip;
+      }
+    }
+  }
+}
+
 int main(int argc, char * argv[]){
   //Initializing BrainFuse Memory
   int memory_size = 1000;
@@ -18,16 +56,8 @@ int main(int argc, char * argv[]){
   int *ip = memory +1;
   //Keep track of starting location for loop
   int *lp;
-  //Useful flags
-  //Disables running IP for loops
-  int dis_flag = 0;
-  //Denotes when its looping
-  int loop_flag = 0;
-  //Looping skips for nested loops
-  int skips = 0;
   //Break flag when the program is suppose to end at the end.
   int b_flag = 0;
-
   //Load arguments into instruction pointer
   int arg_length = 0;
   while (*argv[1] != NULL){
@@ -37,25 +67,10 @@ int main(int argc, char * argv[]){
     arg_length++;
   }
   ip -= arg_length;
-
 //Loops when the IP is not = 0 or when its suppose
 //to be looping and the whole thing is not broken.
-
-while((*ip != 0 || loop_flag == 1) && !b_flag)
+while(*ip != 0 && !b_flag)
   {
-    while(loop_flag){
-      ip--;
-      if (*ip == ']'){
-        skips++;
-      }
-      if(*ip == '[') {
-          skips--;
-          if(skips == 0){
-            loop_flag = 0;
-          }
-      }
-    }
-    if(!dis_flag || *ip == ']'){
       switch(*ip){
         case '+':
           *dp += 1;
@@ -68,31 +83,35 @@ while((*ip != 0 || loop_flag == 1) && !b_flag)
           dp++;
           break;
         case '<':
+        //  printf("runs here");
           dp--;
           break;
         case '[':
         if(*dp == 0){
-          dis_flag = 1;
+          ip = jump_forward(ip);
         }
           break;
         case ']':
-          dis_flag = 0;
-          if(*dp != 0 && dis_flag != 1){
-
-            loop_flag = 1;
-          }
-          if(*dp == 0){
+        //  printf("end of loop: %d\n", *dp);
+          if(*dp != 0){
+            ip = jump_back(ip);
+          //  printf("this is where it jumps to %d",*ip);
           }
           break;
         case ',':
           *dp = fgetc(stdin);
-          if (*dp == -1){
-            b_flag = 1;
+          //printf("this is read into the DP: %d\n",*dp);
+          if(*dp == EOF){
+            *dp = 0;
           }
+        /*  if (*dp == -1){
+            *dp = 0;
+            //b_flag = 1;
+          }*/
           break;
         case '.':
           if (*dp <= 31 && *dp != 10){
-            printf("%d",*dp);
+            printf("%d\n",*dp);
           }
           else{
             printf("%c",*dp);
@@ -104,7 +123,7 @@ while((*ip != 0 || loop_flag == 1) && !b_flag)
         default:
           break;
       }
-    }
+    //  printf("this is the character %c:\n",*ip);
     ip++;
   }
   return 1;

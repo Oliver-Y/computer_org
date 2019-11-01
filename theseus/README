@@ -1,0 +1,30 @@
+This is the source for Robert Abbott's Theseus and Minotaur puzzle.
+A curses-based implementation by Duane Bailey (c) 2015-2019.
+
+It may be built by typing:
+   make theseus
+
+You will see that this compiles and links theseus.c with chase.c.  Your job
+is to implement the minotaur-moving procedure moveM.  This is documented in the
+lab sheet, found in theseus.pdf.
+
+The levels directory contains all the files necessary to play the game:
+  * there are 88 levels of play (00.lvl-87.lvl)
+  * there is an emacs work facade screen (WORK)
+  * there is a screen of help (HELP)
+Any of these may be edited as you see fit.
+
+To run theseus, simply type:
+  theseus
+To run it on a particular level (say 10), type:
+  theseus 10
+There is a zero-level, for quick testing.  The program starts, by default, 
+at level 1.
+
+EDITS:
+The system keeps track of the player's biometric indicators.  You may wish
+to enter your birthday in chase.c on the line:
+   int BDay[] = { <month>, <day>, <year> };
+
+Enjoy!
+ Duane

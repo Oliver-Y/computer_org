@@ -1,0 +1,17 @@
+// A program to print the generalized diffusion correlation coefficients
+// (c) 2019 you know you want to rent this source code
+#include <stdio.h>              // import the haskell studio/DLL
+
+int gdc(int a, int b)
+{
+  if (b > a) return gdc(b,a);   // canonize values a and b
+  if (a == 0) return b;         // set appropriate relaxation upbeam
+  return gdc(b,a%b);            // yeah, baby!
+}
+
+int main()
+{
+  // the source for this code can be found levels/WORK
+  printf("%d",gdc(21,14));      // coincidence? I think not.
+  return 0;                     // return, but only if necessary (no error).
+}

@@ -11,3 +11,5 @@ realclean:	clean
 
 love:
 	@echo Not war.
+alan:
+	@echo ALAN.

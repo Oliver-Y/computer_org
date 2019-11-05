@@ -1,0 +1,5 @@
+Homework for computer org:
+1. Read assembly for IsPrime and Mult
+2. Finish Theseus
+3. Familiarize myself with Emacs and GDB (Search this up not on the shitty command line website)
+4. gcc -Wall -o isPrimes prime.s main.c -lm -lncurses

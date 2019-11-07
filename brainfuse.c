@@ -83,7 +83,6 @@ while(*ip != 0 && !b_flag)
           dp++;
           break;
         case '<':
-        //  printf("runs here");
           dp--;
           break;
         case '[':
@@ -92,22 +91,15 @@ while(*ip != 0 && !b_flag)
         }
           break;
         case ']':
-        //  printf("end of loop: %d\n", *dp);
           if(*dp != 0){
             ip = jump_back(ip);
-          //  printf("this is where it jumps to %d",*ip);
           }
           break;
         case ',':
           *dp = fgetc(stdin);
-          //printf("this is read into the DP: %d\n",*dp);
           if(*dp == EOF){
             *dp = 0;
           }
-        /*  if (*dp == -1){
-            *dp = 0;
-            //b_flag = 1;
-          }*/
           break;
         case '.':
           if (*dp <= 31 && *dp != 10){

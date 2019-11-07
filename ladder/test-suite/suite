@@ -1,0 +1,8 @@
+#!
+for x in *-*; do
+  if ../ladder `echo $x | tr '-' ' '` | cmp -s $x ; then
+     echo $x passes.
+  else
+     echo $x fails.
+  fi
+done

@@ -49,6 +49,14 @@ int main() {
       }
       printf("Computer score: %d\n", compScore);
       printf("User score: %d\n", userScore);
+      if (userScore == 30) {
+      	printf("User wins!");
+      	break;
+      }
+      if (compScore == 30) {
+      	printf("Computer wins!");
+      	break;
+      }
 
       //update guessArray
       guessArray[key] = currentInput;
@@ -60,8 +68,6 @@ int main() {
       //order: previousPreviousResult;previousInput;previousResult  : currentInput
       key = 0x0000;
       key = (previousPreviousResult<<2|previousInput <<1|previousResult);
-
-
     }
   }
   return 0;

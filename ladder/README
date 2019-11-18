@@ -1,0 +1,24 @@
+This directory contains a program to compute word ladders.
+
+You can
+   make ladder
+and it works:
+   ladder ape man
+or
+   ladder -d knuth black raven
+knuth holds the hand-wraught 5,757 word dictionary of five letter words from
+Donald Knuth (thanks: Stanford GraphBase).
+
+You can switch the lookerUpper in ladder.c to use isWordAsm and it will
+make use of the assembly alternative to isWord.
+
+You can
+   make tests
+and it will compare against benchmark tests from Ubuntu boxes. (Tests will
+fail on other devices if the dictionary differs.)
+
+You can make clean, make realclean, or make love.  Whatever your preference.
+
+Enjoy!
+ Duane
+

@@ -1,0 +1,51 @@
+This directory contains some simple C functions and procedures and their
+translation into assembly language.  See the x86 guide for more details
+on the calling conventions used here.
+
+THIS PROGRAM WILL NOT BUILD ON A MAC due to slightly different calling
+conventions and an older-style compiler.  All assembly work should be
+done using Linux boxes with gcc.
+
+To build:
+  make
+
+This constructs an executable, prime.  It filters primes from the input:
+  # seq 10 | prime
+  2
+  3
+  5
+  7
+  #
+
+Another example:
+  make prog
+
+This constructs an executable, prog.
+
+The program is based on prog.c, pattern.s, and gcd.s.
+
+The files pattern.c and gcd.c are only motivational.
+
+Running prog generates the following output:
+ +
+ + *
+ + + *
+ + * + *
+ + + + + *
+ + * * * + *
+ + + + + + + *
+ + * + * + * + *
+ + + * + + * + + *
+ + * + * * * + * + *
+ + + + + + + + + + + *
+ + * * * + * + * * * + *
+ + + + + + + + + + + + + *
+ + * + * + * * * + * + * + *
+ + + * + * * + + * * + * + + *
+ + * + * + * + * + * + * + * + *
+ + + + + + + + + + + + + + + + + *
+ + * * * + * + * * * + * + * * * + *
+ + + + + + + + + + + + + + + + + + + *
+ + * + * * * + * + * + * + * * * + * + *
+
+(type make clean to clean this directory)

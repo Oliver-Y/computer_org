@@ -1,0 +1,35 @@
+# The isPrime method from class a week ago.
+# (c) 2015-2019 duane a. bailey
+	.text
+	.globl	isPrime
+	.type	isPrime,@function
+# n is delivered in %edi
+# f is in           %ecx
+# result is in      %esi
+isPrime:
+	movl	$0,%esi		# result = 0
+	cmpl	$2,%edi		# if (n >= 2) ...	
+	jl	overif1		# (note exchange of n and 2)
+	movl	$1,%esi		# result = 1
+	movl	$2,%ecx		# for (f = 2;...
+loop:	movl	%ecx,%eax
+	imull	%eax		# compute f*f into eax
+	cmpl	%edi,%eax	# ; f*f <= n; ...
+	jg	overwhile
+	movl	%edi,%edx
+	sarl	$31,%edx	# sign-extend n into edx
+	movl	%edi,%eax
+	idivl	%ecx
+	cmpl	$0,%edx		# if (n%f == 0) ....
+	jne	overif2
+	movl	$0,%esi
+	jmp	overwhile
+overif2:
+	addl	$1,%ecx
+	jmp	loop
+overwhile:
+overif1:
+	movl	%esi,%eax
+	ret
+	
+	

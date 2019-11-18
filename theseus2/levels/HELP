@@ -1,0 +1,23 @@
+                             THESEUS and MINOTAUR
+                      by Robert Abbott/www.logicmazes.com
+                          with levels by Kristanix
+  Theseus and Minotaur is a puzzle where our hero Theseus (t) races for a
+goal (@) before the evil Minotaur (m) catches him.  It's hard.
+  At any time Theseus may move in any of the four compass directions...or he
+may sit still.  After Theseus moves, the Minotaur takes TWO moves: he's fast!
+The Minotaur moves as follows:
+       1.) If a horizontal move takes him closer to Theseus, that's his move.
+       2.) Otherwise, if a vertical move is possible, he moves that way.
+There are walls which can impede movement; it's a maze.
+  The challenge is to solve each level, in the fewest moves possible.
+
+Symbols: t = Theseus    . = open space    m = Minotaur
+         T = Theseus in goal (you win!)   M = Minotaur in goal
+    	       * = Minotaur ravaging Theseus (yikes! you lose)
+
+Keys: ^N  Move Theseus up one line       ^P  Move Theseus down one line
+      ^B  Move Theseus left one space    ^F  Move Theseus right one space
+      ^-SPACE Theseus eats lunch         ^_  Backup one move (undo)
+      ^U  Repeat next command 4 times    ?   Get help
+      SPACE Put up emacs facade          ^G  Give up playing theseus
+                    (Press any key to return to play.)

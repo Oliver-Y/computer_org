@@ -36,8 +36,8 @@ int main(){
       else{
         //this is a loss
         current_result = 0;
-//        key = key << 1;
         player_score++;
+        //        key = key << 1;
       }
       if (last_guess == a){
         same = 1;
@@ -50,7 +50,7 @@ int main(){
       //configure the key.
       key = ((key<<3) | (last_result << 2 | same << 1 | current_result));
       key &= 7;
-      
+
       //If the pattern flag is true store a pattern
       //Compare to last guess update the key
       // evaluate predictions

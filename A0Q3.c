@@ -35,7 +35,7 @@ int main(int argc,char *argv[]) {
     }
     count2++;
   }
-
+  
   printf("The quote is: %s", line);
   return 0;
 }
